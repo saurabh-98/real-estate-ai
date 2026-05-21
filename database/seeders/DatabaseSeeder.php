@@ -14,11 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
 
-            PropertyTypeSeeder::class,
+            
 
             AdminUserSeeder::class,
 
-            PropertySeeder::class,
 
         ]);
     }
