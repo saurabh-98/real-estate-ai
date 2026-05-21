@@ -1,0 +1,93 @@
+body{
+
+    background:#f8fafc;
+
+}
+
+.admin-wrapper{
+
+    display:flex;
+
+}
+
+.admin-sidebar{
+
+    width:280px;
+
+    min-height:100vh;
+
+    background:#111827;
+
+    padding:30px;
+
+}
+
+.admin-logo{
+
+    color:#fff;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:40px;
+
+}
+
+.admin-sidebar ul{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.admin-sidebar ul li{
+
+    margin-bottom:15px;
+
+}
+
+.admin-sidebar ul li a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+}
+
+.admin-content{
+
+    flex:1;
+
+}
+
+.admin-topbar{
+
+    background:#fff;
+
+    padding:20px 30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.admin-page-content{
+
+    padding:30px;
+
+}
+
+.admin-card{
+
+    background:#fff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+}

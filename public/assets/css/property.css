@@ -1,0 +1,767 @@
+/* =========================================================
+   ADVANCED REAL ESTATE PROPERTY PAGE UI
+========================================================= */
+
+:root {
+
+    --primary-color: #0f172a;
+    --secondary-color: #2563eb;
+    --accent-color: #38bdf8;
+    --light-bg: #f8fafc;
+    --white: #ffffff;
+    --text-color: #334155;
+    --muted-color: #64748b;
+    --border-color: rgba(255,255,255,0.15);
+    --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.12);
+    --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --transition: all 0.35s ease;
+
+}
+
+/* =========================================================
+   PAGE SECTION
+========================================================= */
+
+.property-page {
+
+    background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(56,189,248,0.08), transparent 30%),
+        #f1f5f9;
+
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.property-page-header {
+
+    max-width: 850px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+
+}
+
+.property-page-subtitle {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 20px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    border: 1px solid rgba(37, 99, 235, 0.15);
+
+    border-radius: 50px;
+
+    color: var(--secondary-color);
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+
+    backdrop-filter: blur(10px);
+
+}
+
+.property-page-header h1 {
+
+    font-size: 60px;
+    font-weight: 800;
+
+    color: var(--primary-color);
+
+    margin-bottom: 20px;
+    line-height: 1.1;
+
+}
+
+.property-page-header p {
+
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--muted-color);
+
+}
+
+/* =========================================================
+   FILTER WRAPPER
+========================================================= */
+
+.property-filter-wrapper {
+
+    background: rgba(255,255,255,0.75);
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    backdrop-filter: blur(18px);
+
+    padding: 35px;
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow-lg);
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.property-filter-wrapper::before {
+
+    content: "";
+
+    position: absolute;
+    top: -80px;
+    right: -80px;
+
+    width: 200px;
+    height: 200px;
+
+    background: rgba(37,99,235,0.08);
+
+    border-radius: 50%;
+
+}
+
+.property-filter-wrapper label {
+
+    font-weight: 700;
+    color: var(--primary-color);
+
+    margin-bottom: 12px;
+
+    font-size: 15px;
+
+}
+
+.property-filter-wrapper .form-control,
+.property-filter-wrapper .form-select {
+
+    height: 60px;
+
+    border-radius: 18px;
+
+    border: 1px solid #dbeafe;
+
+    padding-inline: 18px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    background: rgba(255,255,255,0.85);
+
+    transition: var(--transition);
+
+    box-shadow: none;
+
+}
+
+.property-filter-wrapper .form-control:focus,
+.property-filter-wrapper .form-select:focus {
+
+    border-color: var(--secondary-color);
+
+    box-shadow:
+        0 0 0 5px rgba(37,99,235,0.12);
+
+    transform: translateY(-2px);
+
+}
+
+/* =========================================================
+   SEARCH BUTTON
+========================================================= */
+
+.property-search-btn {
+
+    height: 60px;
+
+    border-radius: 18px !important;
+
+    border: none !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--secondary-color),
+            var(--accent-color)
+        ) !important;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    transition: var(--transition);
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.property-search-btn::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.35),
+            transparent
+        );
+
+    transform: translateX(-100%);
+
+    transition: 0.7s;
+
+}
+
+.property-search-btn:hover::before {
+
+    transform: translateX(100%);
+
+}
+
+.property-search-btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(37,99,235,0.35);
+
+}
+
+/* =========================================================
+   PROPERTY CARD
+========================================================= */
+
+.realestate-property-card {
+
+    background: rgba(255,255,255,0.9);
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    transition: var(--transition);
+
+    position: relative;
+
+    height: 100%;
+
+    box-shadow: var(--shadow-md);
+
+    border: 1px solid rgba(255,255,255,0.7);
+
+    backdrop-filter: blur(12px);
+
+}
+
+.realestate-property-card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.01);
+
+    box-shadow:
+        0 25px 50px rgba(15,23,42,0.18);
+
+}
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.realestate-property-image {
+
+    position: relative;
+
+    overflow: hidden;
+
+    height: 280px;
+
+}
+
+.realestate-property-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.7s ease;
+
+}
+
+.realestate-property-card:hover .realestate-property-image img {
+
+    transform: scale(1.12);
+
+}
+
+.realestate-property-image::after {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(15,23,42,0.6),
+            transparent
+        );
+
+}
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.property-badge {
+
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    z-index: 2;
+
+    padding: 10px 18px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--secondary-color),
+            var(--accent-color)
+        );
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 8px 25px rgba(37,99,235,0.35);
+
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.realestate-property-content {
+
+    padding: 30px;
+
+}
+
+.realestate-property-content h3 {
+
+    font-size: 24px;
+    font-weight: 800;
+
+    color: var(--primary-color);
+
+    margin-bottom: 15px;
+
+    line-height: 1.4;
+
+}
+
+.property-location {
+
+    color: var(--muted-color);
+
+    font-size: 15px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.property-location i {
+
+    color: var(--secondary-color);
+
+}
+
+.realestate-property-content h2 {
+
+    font-size: 32px;
+    font-weight: 800;
+
+    color: var(--secondary-color);
+
+    margin-bottom: 24px;
+
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.property-features {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+
+    padding: 18px;
+
+    background: rgba(248,250,252,0.9);
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(226,232,240,0.8);
+
+}
+
+.property-features span {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    flex: 1;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: var(--text-color);
+
+}
+
+.property-features i {
+
+    font-size: 20px;
+
+    color: var(--secondary-color);
+
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.realestate-property-btn {
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    height: 56px;
+
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary-color),
+            #1e293b
+        );
+
+    color: white;
+
+    font-weight: 700;
+    font-size: 15px;
+
+    transition: var(--transition);
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.realestate-property-btn::before {
+
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transform: translateX(-100%);
+
+    transition: 0.8s;
+
+}
+
+.realestate-property-btn:hover::before {
+
+    transform: translateX(100%);
+
+}
+
+.realestate-property-btn:hover {
+
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 35px rgba(15,23,42,0.25);
+
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.no-property-found {
+
+    background: white;
+
+    padding: 60px 30px;
+
+    border-radius: 30px;
+
+    box-shadow: var(--shadow-md);
+
+}
+
+.no-property-found h4 {
+
+    font-size: 32px;
+    font-weight: 800;
+
+    color: var(--primary-color);
+
+}
+
+.no-property-found p {
+
+    color: var(--muted-color);
+
+    font-size: 16px;
+
+}
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.property-pagination nav {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.pagination {
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+}
+
+.pagination .page-link {
+
+    border: none;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px !important;
+
+    font-weight: 700;
+
+    color: var(--primary-color);
+
+    background: white;
+
+    box-shadow: 0 6px 20px rgba(15,23,42,0.08);
+
+    transition: var(--transition);
+
+}
+
+.pagination .page-item.active .page-link {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--secondary-color),
+            var(--accent-color)
+        );
+
+    color: white;
+
+}
+
+.pagination .page-link:hover {
+
+    transform: translateY(-3px);
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .property-page-header h1 {
+
+        font-size: 48px;
+
+    }
+
+}
+
+@media (max-width: 991px) {
+
+    .property-page {
+
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+    }
+
+    .property-filter-wrapper {
+
+        padding: 25px;
+
+    }
+
+    .property-page-header h1 {
+
+        font-size: 42px;
+
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .property-page-header h1 {
+
+        font-size: 34px;
+
+    }
+
+    .property-page-header p {
+
+        font-size: 15px;
+
+    }
+
+    .property-filter-wrapper {
+
+        padding: 20px;
+
+        border-radius: 22px;
+
+    }
+
+    .realestate-property-image {
+
+        height: 240px;
+
+    }
+
+    .realestate-property-content {
+
+        padding: 24px;
+
+    }
+
+    .property-features {
+
+        flex-direction: column;
+
+    }
+
+    .property-features span {
+
+        flex-direction: row;
+        justify-content: flex-start;
+
+        width: 100%;
+
+    }
+
+}
+
+@media (max-width: 575px) {
+
+    .property-page-header h1 {
+
+        font-size: 28px;
+
+    }
+
+    .property-page-subtitle {
+
+        font-size: 12px;
+
+    }
+
+    .property-filter-wrapper {
+
+        padding: 18px;
+
+    }
+
+    .property-filter-wrapper .form-control,
+    .property-filter-wrapper .form-select,
+    .property-search-btn {
+
+        height: 54px;
+
+    }
+
+    .realestate-property-content h2 {
+
+        font-size: 26px;
+
+    }
+
+}

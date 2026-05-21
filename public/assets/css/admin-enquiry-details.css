@@ -1,0 +1,1014 @@
+/* =========================================================
+   ULTRA PREMIUM ENQUIRY DETAILS PAGE
+========================================================= */
+
+/* =========================================================
+   PAGE WRAPPER
+========================================================= */
+
+.admin-content-wrapper {
+
+    padding: 35px;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #f3f4ff
+        );
+
+    overflow-x: hidden;
+
+}
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.enquiry-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 35px;
+
+}
+
+.enquiry-header h1 {
+
+    font-size: 52px;
+
+    font-weight: 900;
+
+    line-height: 1.1;
+
+    margin-bottom: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #2563eb
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+.enquiry-header p {
+
+    font-size: 17px;
+
+    color: #64748b;
+
+}
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-action-group {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    flex-wrap: wrap;
+
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-width: 150px;
+
+    height: 56px;
+
+    padding:
+        0
+        26px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b
+        );
+
+    color: #fff;
+
+    text-decoration: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    transition: 0.35s ease;
+
+    box-shadow:
+        0 15px 35px rgba(15,23,42,0.18);
+
+}
+
+.back-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.22),
+            transparent
+        );
+
+    transition: 0.8s;
+
+}
+
+.back-btn:hover::before {
+
+    left: 100%;
+
+}
+
+.back-btn:hover {
+
+    transform:
+        translateY(-4px);
+
+    color: #fff;
+
+}
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.delete-enquiry-btn {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-width: 170px;
+
+    height: 56px;
+
+    padding:
+        0
+        26px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #ff6b6b
+        );
+
+    color: #fff;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    transition: 0.35s ease;
+
+    box-shadow:
+        0 18px 35px rgba(239,68,68,0.22);
+
+}
+
+.delete-enquiry-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transition: 0.8s;
+
+}
+
+.delete-enquiry-btn:hover::before {
+
+    left: 100%;
+
+}
+
+.delete-enquiry-btn:hover {
+
+    transform:
+        translateY(-4px);
+
+}
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.enquiry-details-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 40px;
+
+    border-radius: 38px;
+
+    background:
+        rgba(255,255,255,0.82);
+
+    backdrop-filter: blur(24px);
+
+    border:
+        1px solid rgba(255,255,255,0.45);
+
+    box-shadow:
+        0 30px 70px rgba(15,23,42,0.08);
+
+}
+
+/* =========================================================
+   CARD GLOW
+========================================================= */
+
+.enquiry-details-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -120px;
+    right: -120px;
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            rgba(37,99,235,0.12),
+            transparent
+        );
+
+}
+
+/* =========================================================
+   PROFILE SECTION
+========================================================= */
+
+.enquiry-profile-section {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 40px;
+
+}
+
+/* =========================================================
+   PROFILE BOX
+========================================================= */
+
+.customer-profile-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.customer-avatar-large {
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 34px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: #fff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 40px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 25px 50px rgba(37,99,235,0.25);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.customer-avatar-large::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transform: translateX(-100%);
+
+    transition: 0.8s;
+
+}
+
+.customer-avatar-large:hover::before {
+
+    transform: translateX(100%);
+
+}
+
+/* =========================================================
+   PROFILE TEXT
+========================================================= */
+
+.customer-profile-box h2 {
+
+    font-size: 38px;
+
+    font-weight: 900;
+
+    margin-bottom: 8px;
+
+    color: #0f172a;
+
+}
+
+.customer-profile-box span {
+
+    font-size: 15px;
+
+    color: #64748b;
+
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status-section .status-badge {
+
+    min-width: 130px;
+
+    height: 48px;
+
+    padding:
+        0
+        22px;
+
+    border-radius: 50px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+}
+
+.status-new {
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+}
+
+.status-read {
+
+    background: #fef3c7;
+
+    color: #d97706;
+
+}
+
+.status-replied {
+
+    background: #dcfce7;
+
+    color: #16a34a;
+
+}
+
+/* =========================================================
+   INFO GRID
+========================================================= */
+
+.enquiry-info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 24px;
+
+    margin-bottom: 40px;
+
+}
+
+/* =========================================================
+   INFO BOX
+========================================================= */
+
+.info-box {
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 26px;
+
+    border-radius: 28px;
+
+    background: #f8fafc;
+
+    transition: 0.35s ease;
+
+}
+
+.info-box:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 40px rgba(15,23,42,0.08);
+
+}
+
+.info-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    border:
+        1px solid transparent;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,0.15),
+            rgba(124,58,237,0.15)
+        );
+
+    opacity: 0;
+
+    transition: 0.3s ease;
+
+}
+
+.info-box:hover::before {
+
+    opacity: 1;
+
+}
+
+/* =========================================================
+   INFO ICON
+========================================================= */
+
+.info-icon {
+
+    min-width: 68px;
+
+    width: 68px;
+    height: 68px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: #fff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 24px;
+
+    box-shadow:
+        0 15px 35px rgba(37,99,235,0.22);
+
+}
+
+/* =========================================================
+   INFO TEXT
+========================================================= */
+
+.info-box small {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #64748b;
+
+}
+
+.info-box h5 {
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    color: #0f172a;
+
+    margin: 0;
+
+    word-break: break-word;
+
+}
+
+/* =========================================================
+   MESSAGE CARD
+========================================================= */
+
+.message-card {
+
+    margin-bottom: 40px;
+
+}
+
+.message-header {
+
+    margin-bottom: 18px;
+
+}
+
+.message-header h4 {
+
+    font-size: 26px;
+
+    font-weight: 900;
+
+    color: #0f172a;
+
+}
+
+/* =========================================================
+   MESSAGE BODY
+========================================================= */
+
+.message-body {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 32px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #ffffff
+        );
+
+    line-height: 36px;
+
+    font-size: 16px;
+
+    color: #475569;
+
+    border:
+        1px solid #eef2ff;
+
+}
+
+/* =========================================================
+   ACTION BAR
+========================================================= */
+
+.enquiry-action-bar {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+
+}
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.action-btn {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-width: 220px;
+
+    height: 58px;
+
+    padding:
+        0
+        24px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    color: #fff;
+
+    transition: 0.35s ease;
+
+}
+
+.action-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
+
+    transition: 0.8s;
+
+}
+
+.action-btn:hover::before {
+
+    left: 100%;
+
+}
+
+.action-btn:hover {
+
+    transform:
+        translateY(-4px);
+
+}
+
+.mark-read-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+
+    box-shadow:
+        0 18px 35px rgba(37,99,235,0.22);
+
+}
+
+.reply-btn {
+
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #22c55e
+        );
+
+    box-shadow:
+        0 18px 35px rgba(34,197,94,0.20);
+
+}
+
+/* =========================================================
+   SWEET ALERT
+========================================================= */
+
+.swal2-popup {
+
+    border-radius: 30px !important;
+
+    padding: 32px !important;
+
+}
+
+.swal2-confirm {
+
+    border-radius: 14px !important;
+
+    padding:
+        12px
+        24px !important;
+
+    font-weight: 700 !important;
+
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1200px){
+
+    .enquiry-info-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .enquiry-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .header-action-group {
+
+        width: 100%;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .admin-content-wrapper {
+
+        padding: 18px;
+
+    }
+
+    .enquiry-header h1 {
+
+        font-size: 34px;
+
+    }
+
+    .enquiry-header p {
+
+        font-size: 15px;
+
+    }
+
+    .enquiry-details-card {
+
+        padding: 24px;
+
+        border-radius: 28px;
+
+    }
+
+    .customer-profile-box {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .customer-avatar-large {
+
+        width: 90px;
+        height: 90px;
+
+        font-size: 32px;
+
+    }
+
+    .customer-profile-box h2 {
+
+        font-size: 28px;
+
+    }
+
+    .header-action-group {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .back-btn,
+    .delete-enquiry-btn {
+
+        width: 100%;
+
+    }
+
+    .enquiry-action-bar {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .action-btn {
+
+        width: 100%;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .enquiry-header h1 {
+
+        font-size: 28px;
+
+    }
+
+    .customer-profile-box h2 {
+
+        font-size: 24px;
+
+    }
+
+    .message-body {
+
+        padding: 24px;
+
+        line-height: 30px;
+
+        font-size: 15px;
+
+    }
+
+    .info-box {
+
+        padding: 20px;
+
+        border-radius: 22px;
+
+    }
+
+    .info-icon {
+
+        width: 58px;
+        height: 58px;
+
+        min-width: 58px;
+
+        font-size: 20px;
+
+    }
+
+}

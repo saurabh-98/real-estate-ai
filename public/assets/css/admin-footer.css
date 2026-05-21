@@ -1,0 +1,324 @@
+/* =========================================================
+| ADMIN FOOTER
+========================================================= */
+
+.admin-footer{
+
+    background:#ffffff;
+
+    border-top:
+        1px solid #e5e7eb;
+
+    padding:
+        22px 30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-top:30px;
+
+}
+
+/* =========================================================
+| LEFT
+========================================================= */
+
+.admin-footer-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+/* =========================================================
+| LOGO
+========================================================= */
+
+.admin-footer-logo{
+
+    width:55px;
+    height:55px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd,
+            #6610f2
+        );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:22px;
+
+    box-shadow:
+        0 10px 25px rgba(13,110,253,0.25);
+
+}
+
+/* =========================================================
+| CONTENT
+========================================================= */
+
+.admin-footer-content h5{
+
+    margin:0;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+.admin-footer-content p{
+
+    margin:5px 0 0;
+
+    font-size:13px;
+
+    color:#64748b;
+
+}
+
+/* =========================================================
+| CENTER
+========================================================= */
+
+.admin-footer-center{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+/* =========================================================
+| STATUS
+========================================================= */
+
+.footer-status{
+
+    height:45px;
+
+    padding:
+        0 18px;
+
+    border-radius:50px;
+
+    background:#ecfdf5;
+
+    color:#15803d;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.status-dot{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    animation:pulse 1.5s infinite;
+
+}
+
+/* =========================================================
+| PULSE
+========================================================= */
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        transform:scale(1.4);
+
+        opacity:0.5;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/* =========================================================
+| RIGHT
+========================================================= */
+
+.admin-footer-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+/* =========================================================
+| SOCIAL LINKS
+========================================================= */
+
+.footer-social-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.footer-social-links a{
+
+    width:42px;
+    height:42px;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    color:#111827;
+
+    transition:0.3s;
+
+}
+
+.footer-social-links a:hover{
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd,
+            #6610f2
+        );
+
+    color:#fff;
+
+    transform:translateY(-4px);
+
+}
+
+/* =========================================================
+| COPYRIGHT
+========================================================= */
+
+.footer-copy{
+
+    font-size:14px;
+
+    color:#64748b;
+
+    font-weight:500;
+
+}
+
+/* =========================================================
+| TABLET
+========================================================= */
+
+@media(max-width:992px){
+
+    .admin-footer{
+
+        justify-content:center;
+
+        text-align:center;
+
+    }
+
+}
+
+/* =========================================================
+| MOBILE
+========================================================= */
+
+@media(max-width:576px){
+
+    .admin-footer{
+
+        padding:20px 15px;
+
+        flex-direction:column;
+
+    }
+
+    .admin-footer-left{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .admin-footer-right{
+
+        justify-content:center;
+
+        flex-direction:column;
+
+    }
+
+    .footer-copy{
+
+        text-align:center;
+
+    }
+
+}

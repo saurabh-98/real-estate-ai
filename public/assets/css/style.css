@@ -1,0 +1,54 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#f8fafc;
+
+    color:#111827;
+
+    overflow-x:hidden;
+
+}
+
+img{
+    max-width:100%;
+}
+
+.container-fluid{
+
+    padding-left:40px;
+    padding-right:40px;
+
+}
+
+.main-wrapper{
+
+    min-height:100vh;
+
+}
+
+button,
+input,
+textarea,
+select{
+
+    outline:none !important;
+    box-shadow:none !important;
+
+}
+
+section{
+
+    position:relative;
+
+}

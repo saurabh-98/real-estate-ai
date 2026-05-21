@@ -1,0 +1,374 @@
+/* =========================================================
+| ROOT VARIABLES
+========================================================= */
+
+:root{
+
+    --sidebar-width:300px;
+
+    --topbar-height:90px;
+
+    --primary-color:#0d6efd;
+
+    --secondary-color:#6610f2;
+
+    --dark-color:#111827;
+
+    --light-bg:#f8fafc;
+
+    --border-color:#e5e7eb;
+
+}
+
+/* =========================================================
+| RESET
+========================================================= */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:var(--light-bg);
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+}
+
+/* =========================================================
+| MAIN ADMIN WRAPPER
+========================================================= */
+
+.admin-layout-wrapper{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    position:relative;
+
+    background:var(--light-bg);
+
+}
+
+/* =========================================================
+| SIDEBAR SPACE FIX
+========================================================= */
+
+.admin-main-wrapper{
+
+    width:calc(100% - var(--sidebar-width));
+
+    margin-left:var(--sidebar-width);
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    position:relative;
+
+    transition:0.3s ease;
+
+    overflow:hidden;
+
+}
+
+/* =========================================================
+| PAGE CONTENT
+========================================================= */
+
+.admin-page-wrapper{
+
+    flex:1;
+
+    padding:30px;
+
+    position:relative;
+
+    width:100%;
+
+    overflow-x:hidden;
+
+}
+
+/* =========================================================
+| CONTENT CONTAINER
+========================================================= */
+
+.admin-content-container{
+
+    width:100%;
+
+    max-width:100%;
+
+}
+
+/* =========================================================
+| COMMON CARD
+========================================================= */
+
+.admin-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:25px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.04);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* =========================================================
+| TABLE WRAPPER
+========================================================= */
+
+.admin-table-wrapper{
+
+    width:100%;
+
+    overflow-x:auto;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:20px;
+
+}
+
+/* =========================================================
+| TABLE FIX
+========================================================= */
+
+.admin-table-wrapper table{
+
+    min-width:900px;
+
+}
+
+/* =========================================================
+| FORM CONTROL FIX
+========================================================= */
+
+.form-control,
+.form-select{
+
+    height:54px;
+
+    border-radius:16px;
+
+    border:
+        1px solid var(--border-color);
+
+    box-shadow:none !important;
+
+}
+
+textarea.form-control{
+
+    min-height:140px;
+
+    padding-top:15px;
+
+}
+
+/* =========================================================
+| BUTTONS
+========================================================= */
+
+.btn{
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:0.3s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* =========================================================
+| IMAGE FIX
+========================================================= */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/* =========================================================
+| SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+
+    width:8px;
+    height:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f1f5f9;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#cbd5e1;
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94a3b8;
+
+}
+
+/* =========================================================
+| FOOTER FIX
+========================================================= */
+
+.admin-footer{
+
+    margin-top:auto;
+
+    width:100%;
+
+    flex-shrink:0;
+
+}
+
+/* =========================================================
+| MOBILE SIDEBAR FIX
+========================================================= */
+
+body.sidebar-open{
+
+    overflow:hidden;
+
+}
+
+/* =========================================================
+| LARGE SCREEN
+========================================================= */
+
+@media(max-width:1400px){
+
+    .admin-page-wrapper{
+
+        padding:25px;
+
+    }
+
+}
+
+/* =========================================================
+| TABLET
+========================================================= */
+
+@media(max-width:992px){
+
+    .admin-main-wrapper{
+
+        width:100%;
+
+        margin-left:0;
+
+    }
+
+    .admin-page-wrapper{
+
+        padding:20px;
+
+    }
+
+}
+
+/* =========================================================
+| MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+    .admin-page-wrapper{
+
+        padding:18px;
+
+    }
+
+    .admin-card{
+
+        border-radius:20px;
+
+        padding:20px;
+
+    }
+
+}
+
+/* =========================================================
+| SMALL MOBILE
+========================================================= */
+
+@media(max-width:576px){
+
+    .admin-page-wrapper{
+
+        padding:15px;
+
+    }
+
+    .admin-card{
+
+        padding:18px;
+
+        border-radius:18px;
+
+    }
+
+    .admin-table-wrapper{
+
+        padding:15px;
+
+        border-radius:18px;
+
+    }
+
+}

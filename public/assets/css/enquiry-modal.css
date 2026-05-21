@@ -1,0 +1,875 @@
+/* =========================================================
+   =========================================================
+        ULTRA PREMIUM ENQUIRY MODAL CSS
+        REAL ESTATE AI
+        PRODUCTION READY
+        RESPONSIVE + MODERN + ADVANCED UI
+   =========================================================
+========================================================= */
+
+/* =========================================================
+   MODAL ROOT
+========================================================= */
+
+.enquiry-modal {
+
+    z-index: 9999 !important;
+}
+
+/* =========================================================
+   MODAL DIALOG
+========================================================= */
+
+.enquiry-modal .modal-dialog {
+
+    max-width: 850px;
+
+    margin: 30px auto;
+
+    padding: 0 18px;
+}
+
+/* =========================================================
+   MODAL CONTENT
+========================================================= */
+
+.enquiry-modal-content {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: none;
+
+    border-radius: 36px;
+
+    background:
+        rgba(255,255,255,0.96);
+
+    backdrop-filter: blur(24px);
+
+    -webkit-backdrop-filter: blur(24px);
+
+    box-shadow:
+        0 40px 120px rgba(15,23,42,0.22);
+
+    isolation: isolate;
+
+    animation:
+        modalFadeUp 0.5s ease;
+}
+
+/* =========================================================
+   MODAL ANIMATION
+========================================================= */
+
+@keyframes modalFadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.95);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+/* =========================================================
+   BACKDROP
+========================================================= */
+
+.modal-backdrop.show {
+
+    opacity: 0.78 !important;
+
+    backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   GLOW EFFECT
+========================================================= */
+
+.enquiry-modal-content::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -120px;
+    right: -120px;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37,99,235,0.18),
+            transparent 70%
+        );
+
+    z-index: -1;
+}
+
+/* =========================================================
+   SECOND GLOW
+========================================================= */
+
+.enquiry-modal-content::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: -150px;
+    left: -150px;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124,58,237,0.10),
+            transparent 70%
+        );
+
+    z-index: -1;
+}
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.enquiry-modal-header {
+
+    position: relative;
+
+    padding:
+        80px 60px 45px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,0.06),
+            rgba(124,58,237,0.04)
+        );
+
+    border-bottom:
+        1px solid rgba(148,163,184,0.12);
+
+    z-index: 2;
+}
+
+/* =========================================================
+   HEADER TOP SHINE
+========================================================= */
+
+.enquiry-modal-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.9),
+            transparent
+        );
+}
+
+/* =========================================================
+   MODAL BADGE
+========================================================= */
+
+.enquiry-modal-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 13px 28px;
+
+    border-radius: 100px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: #fff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 28px;
+
+    letter-spacing: 0.3px;
+
+    box-shadow:
+        0 20px 40px rgba(37,99,235,0.22);
+}
+
+/* =========================================================
+   MODAL HEADING
+========================================================= */
+
+.enquiry-modal-header h2 {
+
+    font-size: 56px;
+
+    font-weight: 900;
+
+    line-height: 1.1;
+
+    color: #0f172a;
+
+    margin-bottom: 18px;
+}
+
+/* =========================================================
+   MODAL DESCRIPTION
+========================================================= */
+
+.enquiry-modal-header p {
+
+    max-width: 620px;
+
+    margin: auto;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    color: #64748b;
+}
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.enquiry-close-btn {
+
+    position: absolute;
+
+    top: 28px;
+    right: 28px;
+
+    width: 58px;
+    height: 58px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.98);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 20px 45px rgba(15,23,42,0.14);
+
+    z-index: 99999;
+
+    transition: all 0.35s ease;
+}
+
+/* =========================================================
+   CLOSE ICON
+========================================================= */
+
+.enquiry-close-btn i {
+
+    font-size: 20px;
+
+    color: #0f172a;
+
+    transition: 0.3s ease;
+}
+
+/* =========================================================
+   CLOSE HOVER
+========================================================= */
+
+.enquiry-close-btn:hover {
+
+    transform:
+        rotate(90deg)
+        scale(1.06);
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+}
+
+.enquiry-close-btn:hover i {
+
+    color: #fff;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.enquiry-form {
+
+    padding:
+        50px 60px 60px;
+}
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.enquiry-form .form-label {
+
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: #0f172a;
+}
+
+/* =========================================================
+   INPUT GROUP
+========================================================= */
+
+.enquiry-input-group {
+
+    position: relative;
+}
+
+/* =========================================================
+   INPUT ICON
+========================================================= */
+
+.input-icon {
+
+    position: absolute;
+
+    top: 50%;
+    left: 20px;
+
+    transform: translateY(-50%);
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,0.12),
+            rgba(124,58,237,0.10)
+        );
+
+    z-index: 5;
+
+    transition: 0.3s ease;
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.input-icon i {
+
+    font-size: 18px;
+
+    color: #2563eb;
+}
+
+/* =========================================================
+   FORM CONTROL
+========================================================= */
+
+.enquiry-form .form-control {
+
+    width: 100%;
+
+    height: 78px;
+
+    border: none;
+
+    border-radius: 24px;
+
+    background:
+        rgba(248,250,252,0.96);
+
+    padding:
+        0 24px 0 92px;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    color: #0f172a;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(148,163,184,0.14);
+
+    transition: all 0.35s ease;
+}
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+.enquiry-form textarea.form-control {
+
+    min-height: 180px;
+
+    resize: none;
+
+    padding-top: 28px;
+}
+
+/* =========================================================
+   TEXTAREA ICON
+========================================================= */
+
+.textarea-group .input-icon {
+
+    top: 28px;
+
+    transform: none;
+}
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.enquiry-form .form-control::placeholder {
+
+    color: #94a3b8;
+}
+
+/* =========================================================
+   INPUT FOCUS
+========================================================= */
+
+.enquiry-form .form-control:focus {
+
+    background: #fff;
+
+    box-shadow:
+        0 0 0 5px rgba(37,99,235,0.10);
+
+    outline: none;
+}
+
+/* =========================================================
+   ICON FOCUS EFFECT
+========================================================= */
+
+.enquiry-form .form-control:focus + .input-icon,
+.enquiry-input-group:hover .input-icon {
+
+    transform:
+        translateY(-50%)
+        scale(1.06);
+}
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.enquiry-submit-btn {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 76px;
+
+    border: none;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    overflow: hidden;
+
+    color: #fff;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 24px 50px rgba(37,99,235,0.28);
+
+    transition: all 0.45s ease;
+}
+
+/* =========================================================
+   BUTTON SHINE
+========================================================= */
+
+.enquiry-submit-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,0.35),
+            transparent
+        );
+
+    transition: 0.8s;
+}
+
+/* =========================================================
+   BUTTON HOVER SHINE
+========================================================= */
+
+.enquiry-submit-btn:hover::before {
+
+    left: 120%;
+}
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
+
+.enquiry-submit-btn:hover {
+
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 35px 80px rgba(37,99,235,0.35);
+}
+
+/* =========================================================
+   BUTTON ICON
+========================================================= */
+
+.enquiry-submit-btn i {
+
+    transition: 0.35s ease;
+}
+
+/* =========================================================
+   BUTTON ICON HOVER
+========================================================= */
+
+.enquiry-submit-btn:hover i {
+
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   BUTTON DISABLED
+========================================================= */
+
+.enquiry-submit-btn:disabled {
+
+    opacity: 0.75;
+
+    cursor: not-allowed;
+
+    transform: none !important;
+}
+
+/* =========================================================
+   INVALID INPUT
+========================================================= */
+
+.is-invalid {
+
+    border:
+        2px solid #dc2626 !important;
+
+    box-shadow:
+        0 0 0 5px rgba(220,38,38,0.10) !important;
+}
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.invalid-feedback {
+
+    display: block;
+
+    margin-top: 10px;
+
+    padding-left: 8px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #dc2626;
+}
+
+/* =========================================================
+   SWEET ALERT FIX
+========================================================= */
+
+.swal2-container {
+
+    z-index: 999999 !important;
+}
+
+.swal2-popup {
+
+    border-radius: 26px !important;
+
+    padding: 30px !important;
+
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.swal2-title {
+
+    font-weight: 800 !important;
+
+    color: #0f172a !important;
+}
+
+.swal2-confirm {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        ) !important;
+
+    border-radius: 14px !important;
+
+    font-weight: 700 !important;
+}
+
+/* =========================================================
+   FIX HEADER OVERLAP
+========================================================= */
+
+header,
+.navbar,
+.advanced-header {
+
+    z-index: 1040 !important;
+}
+
+/* =========================================================
+   MODAL ALWAYS ABOVE HEADER
+========================================================= */
+
+.modal {
+
+    z-index: 9999 !important;
+}
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .enquiry-modal-header {
+
+        padding:
+            70px 40px 35px;
+    }
+
+    .enquiry-form {
+
+        padding:
+            40px 40px 45px;
+    }
+
+    .enquiry-modal-header h2 {
+
+        font-size: 42px;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .enquiry-modal .modal-dialog {
+
+        margin: 18px auto;
+    }
+
+    .enquiry-modal-content {
+
+        border-radius: 30px;
+    }
+
+    .enquiry-modal-header {
+
+        padding:
+            60px 24px 28px;
+    }
+
+    .enquiry-form {
+
+        padding:
+            30px 24px 30px;
+    }
+
+    .enquiry-modal-header h2 {
+
+        font-size: 34px;
+    }
+
+    .enquiry-modal-header p {
+
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+    .enquiry-form .form-control {
+
+        height: 68px;
+
+        padding-left: 78px;
+
+        font-size: 15px;
+    }
+
+    .enquiry-form textarea.form-control {
+
+        min-height: 150px;
+    }
+
+    .input-icon {
+
+        width: 46px;
+        height: 46px;
+
+        left: 16px;
+    }
+
+    .enquiry-submit-btn {
+
+        height: 68px;
+
+        font-size: 16px;
+    }
+
+    .enquiry-close-btn {
+
+        width: 46px;
+        height: 46px;
+
+        top: 18px;
+        right: 18px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .enquiry-modal-header h2 {
+
+        font-size: 28px;
+    }
+
+    .enquiry-modal-badge {
+
+        font-size: 13px;
+
+        padding: 10px 18px;
+    }
+
+    .enquiry-form {
+
+        padding:
+            24px 18px 24px;
+    }
+
+    .enquiry-modal-header {
+
+        padding:
+            55px 18px 22px;
+    }
+}
