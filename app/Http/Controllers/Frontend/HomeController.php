@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Property;
-use App\Models\PropertyType;
+use App\Models\Employee;
+use App\Models\User;
 
 class HomeController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | HOME PAGE
+    | Employee Portal Home
     |--------------------------------------------------------------------------
     */
 
@@ -18,129 +18,133 @@ class HomeController extends Controller
     {
         /*
         |--------------------------------------------------------------------------
-        | FEATURED PROPERTIES
+        | Statistics
         |--------------------------------------------------------------------------
         */
 
-        $properties =
+        $totalEmployees = Employee::count();
 
-            Property::with('propertyType')
+        $registeredUsers = User::where('role', 'employee')->count();
 
-                ->where('status', 1)
+        $completedProfiles = Employee::has('educations')->count();
 
-                ->latest()
-
-                ->take(6)
-
-                ->get();
+        $pendingProfiles = $registeredUsers - $completedProfiles;
 
         /*
         |--------------------------------------------------------------------------
-        | SINGLE FEATURED PROPERTY
+        | Latest Employees
         |--------------------------------------------------------------------------
         */
 
-        $featuredProperty =
-
-            Property::with('propertyType')
-
-                ->where('status', 1)
-
-                ->where('is_featured', 1)
-
-                ->latest()
-
-                ->first();
+        $latestEmployees = Employee::latest()
+            ->take(6)
+            ->get();
 
         /*
         |--------------------------------------------------------------------------
-        | TOTAL PROPERTIES
+        | New Employees This Month
         |--------------------------------------------------------------------------
         */
 
-        $totalProperties =
-
-            Property::where('status', 1)
-
-                ->count();
+        $newEmployees = Employee::whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->count();
 
         /*
         |--------------------------------------------------------------------------
-        | FEATURED COUNT
+        | Dashboard Cards
         |--------------------------------------------------------------------------
         */
 
-        $featuredProperties =
+        $dashboardCards = [
 
-            Property::where('status', 1)
+            [
+                'title' => 'Employees',
+                'count' => $totalEmployees,
+                'icon' => 'fa-users',
+                'color' => 'primary',
+            ],
 
-                ->where('is_featured', 1)
+            [
+                'title' => 'Registered Users',
+                'count' => $registeredUsers,
+                'icon' => 'fa-user-check',
+                'color' => 'success',
+            ],
 
-                ->count();
+            [
+                'title' => 'Completed Profiles',
+                'count' => $completedProfiles,
+                'icon' => 'fa-address-card',
+                'color' => 'info',
+            ],
+
+            [
+                'title' => 'Pending Profiles',
+                'count' => $pendingProfiles,
+                'icon' => 'fa-user-clock',
+                'color' => 'warning',
+            ],
+
+        ];
 
         /*
         |--------------------------------------------------------------------------
-        | TOTAL CITIES
+        | Features
         |--------------------------------------------------------------------------
         */
 
-        $citiesCount =
+        $features = [
 
-            Property::where('status', 1)
+            [
+                'icon' => 'fa-id-card',
+                'title' => 'Employee Profile',
+                'description' => 'Manage complete employee profiles with personal information.',
+            ],
 
-                ->distinct('city')
+            [
+                'icon' => 'fa-graduation-cap',
+                'title' => 'Education Records',
+                'description' => 'Store employee qualifications and certificates securely.',
+            ],
 
-                ->count('city');
+            [
+                'icon' => 'fa-file-lines',
+                'title' => 'Document Management',
+                'description' => 'Upload and manage employee documents digitally.',
+            ],
 
-        /*
-        |--------------------------------------------------------------------------
-        | PROPERTY TYPES
-        |--------------------------------------------------------------------------
-        */
+            [
+                'icon' => 'fa-shield-halved',
+                'title' => 'Secure Login',
+                'description' => 'Separate Admin and Employee portals with role-based authentication.',
+            ],
 
-        $propertyTypes =
-
-            PropertyType::latest()
-
-                ->get();
-
-        /*
-        |--------------------------------------------------------------------------
-        | RECENT PROPERTIES
-        |--------------------------------------------------------------------------
-        */
-
-        $recentProperties =
-
-            Property::where('status', 1)
-
-                ->latest()
-
-                ->take(8)
-
-                ->get();
+        ];
 
         /*
         |--------------------------------------------------------------------------
-        | RETURN VIEW
+        | Return View
         |--------------------------------------------------------------------------
         */
 
         return view('home', compact(
 
-            'properties',
+            'dashboardCards',
 
-            'featuredProperty',
+            'features',
 
-            'totalProperties',
+            'latestEmployees',
 
-            'featuredProperties',
+            'newEmployees',
 
-            'citiesCount',
+            'totalEmployees',
 
-            'propertyTypes',
+            'registeredUsers',
 
-            'recentProperties'
+            'completedProfiles',
+
+            'pendingProfiles'
 
         ));
     }

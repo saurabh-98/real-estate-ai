@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
             
 
-            AdminUserSeeder::class,
+            UserSeeder::class,
 
 
         ]);

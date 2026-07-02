@@ -4,97 +4,37 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| FRONTEND CONTROLLERS
+| CONTROLLERS
 |--------------------------------------------------------------------------
 */
 
 use App\Http\Controllers\Frontend\HomeController;
 
-use App\Http\Controllers\Frontend\PropertyController;
+
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\EmployeeController;
+
+use App\Http\Controllers\Employee\DashboardController as EmployeeDashboardController;
+use App\Http\Controllers\Employee\ProfileController;
+use App\Http\Controllers\Employee\EducationController;
 
 /*
 |--------------------------------------------------------------------------
-| ADMIN CONTROLLERS
-|--------------------------------------------------------------------------
-*/
-
-use App\Http\Controllers\Admin\DashboardController;
-
-use App\Http\Controllers\Admin\PropertyController as AdminPropertyController;
-
-use App\Http\Controllers\Admin\AIController;
-
-use App\Http\Controllers\Admin\EnquiryController as AdminEnquiryController;
-
-/*
-|--------------------------------------------------------------------------
-| OTHER CONTROLLERS
-|--------------------------------------------------------------------------
-*/
-
-use App\Http\Controllers\EnquiryController;
-
-/*
-|--------------------------------------------------------------------------
-| FRONTEND ROUTES
-|--------------------------------------------------------------------------
-*/
-
-/*
-|--------------------------------------------------------------------------
-| HOME PAGE
+| PUBLIC WEBSITE
 |--------------------------------------------------------------------------
 */
 
 Route::get(
-
     '/',
-
     [HomeController::class, 'index']
-
 )->name('home');
 
 /*
 |--------------------------------------------------------------------------
-| PROPERTY LISTING
+| ROLE BASED DASHBOARD REDIRECT
 |--------------------------------------------------------------------------
 */
 
-Route::get(
-
-    '/properties',
-
-    [PropertyController::class, 'index']
-
-)->name('properties');
-
-/*
-|--------------------------------------------------------------------------
-| PROPERTY DETAILS
-|--------------------------------------------------------------------------
-*/
-
-Route::get(
-
-    '/property/{slug}',
-
-    [PropertyController::class, 'show']
-
-)->name('properties.show');
-
-/*
-|--------------------------------------------------------------------------
-| SEND ENQUIRY
-|--------------------------------------------------------------------------
-*/
-
-Route::post(
-
-    '/send-enquiry',
-
-    [EnquiryController::class, 'store']
-
-)->name('send.enquiry');
 
 /*
 |--------------------------------------------------------------------------
@@ -102,145 +42,114 @@ Route::post(
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth'])
-
+Route::middleware([
+        'auth',
+        'role:admin'
+    ])
     ->prefix('admin')
-
     ->name('admin.')
-
     ->group(function () {
 
-    /*
-    |--------------------------------------------------------------------------
-    | DASHBOARD
-    |--------------------------------------------------------------------------
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | Dashboard
+        |--------------------------------------------------------------------------
+        */
 
-    Route::get(
+        Route::get(
+            '/dashboard',
+            [AdminDashboardController::class, 'index']
+        )->name('dashboard');
 
-        '/dashboard',
+        /*
+        |--------------------------------------------------------------------------
+        | Employees
+        |--------------------------------------------------------------------------
+        */
 
-        [DashboardController::class, 'index']
+        Route::get(
+            '/employees',
+            [EmployeeController::class, 'index']
+        )->name('employees.index');
 
-    )->name('dashboard');
+        Route::get(
+            '/employees/{employee}',
+            [EmployeeController::class, 'show']
+        )->name('employees.show');
 
-    /*
-    |--------------------------------------------------------------------------
-    | PROPERTY CRUD
-    |--------------------------------------------------------------------------
-    */
+});
 
-    Route::resource(
+/*
+|--------------------------------------------------------------------------
+| EMPLOYEE ROUTES
+|--------------------------------------------------------------------------
+*/
 
-        'properties',
+Route::middleware([
+        'auth',
+        'role:employee'
+    ])
+    ->prefix('employee')
+    ->name('employee.')
+    ->group(function () {
 
-        AdminPropertyController::class
+        /*
+        |--------------------------------------------------------------------------
+        | Dashboard
+        |--------------------------------------------------------------------------
+        */
 
-    );
+        Route::get(
+            '/dashboard',
+            [EmployeeDashboardController::class, 'index']
+        )->name('dashboard');
 
-    /*
-    |--------------------------------------------------------------------------
-    | AI DESCRIPTION GENERATOR
-    |--------------------------------------------------------------------------
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | Profile
+        |--------------------------------------------------------------------------
+        */
 
-    Route::post(
+        Route::get(
+            '/profile/create',
+            [ProfileController::class, 'create']
+        )->name('profile.create');
 
-        '/generate-ai-description',
+        Route::post(
+            '/profile',
+            [ProfileController::class, 'store']
+        )->name('profile.store');
 
-        [AIController::class, 'generateDescription']
+        Route::get(
+            '/profile',
+            [ProfileController::class, 'show']
+        )->name('profile.show');
 
-    )->name('ai.description');
+        Route::get(
+            '/profile/edit',
+            [ProfileController::class, 'edit']
+        )->name('profile.edit');
 
-    /*
-    |--------------------------------------------------------------------------
-    | ENQUIRY MODULE
-    |--------------------------------------------------------------------------
-    */
+        Route::put(
+            '/profile',
+            [ProfileController::class, 'update']
+        )->name('profile.update');
 
-    /*
-    |--------------------------------------------------------------------------
-    | LIST
-    |--------------------------------------------------------------------------
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | Education
+        |--------------------------------------------------------------------------
+        */
 
-    Route::get(
+        Route::post(
+            '/education',
+            [EducationController::class, 'store']
+        )->name('education.store');
 
-        '/enquiries',
-
-        [AdminEnquiryController::class, 'index']
-
-    )->name('enquiries');
-
-    /*
-    |--------------------------------------------------------------------------
-    | SHOW
-    |--------------------------------------------------------------------------
-    */
-
-    Route::get(
-
-        '/enquiries/{id}',
-
-        [AdminEnquiryController::class, 'show']
-
-    )->name('enquiries.show');
-
-    /*
-    |--------------------------------------------------------------------------
-    | DELETE
-    |--------------------------------------------------------------------------
-    */
-
-    Route::delete(
-
-        '/enquiries/{id}',
-
-        [AdminEnquiryController::class, 'destroy']
-
-    )->name('enquiries.destroy');
-
-    /*
-    |--------------------------------------------------------------------------
-    | UPDATE STATUS
-    |--------------------------------------------------------------------------
-    */
-
-    Route::post(
-
-        '/enquiries/{id}/status',
-
-        [AdminEnquiryController::class, 'updateStatus']
-
-    )->name('enquiries.status');
-
-    /*
-    |--------------------------------------------------------------------------
-    | BULK DELETE
-    |--------------------------------------------------------------------------
-    */
-
-    Route::post(
-
-        '/enquiries/bulk-delete',
-
-        [AdminEnquiryController::class, 'bulkDelete']
-
-    )->name('enquiries.bulkDelete');
-
-    /*
-    |--------------------------------------------------------------------------
-    | MARK ALL READ
-    |--------------------------------------------------------------------------
-    */
-
-    Route::post(
-
-        '/enquiries/mark-all-read',
-
-        [AdminEnquiryController::class, 'markAllRead']
-
-    )->name('enquiries.markAllRead');
+        Route::delete(
+            '/education/{education}',
+            [EducationController::class, 'destroy']
+        )->name('education.destroy');
 
 });
 
@@ -250,4 +159,4 @@ Route::middleware(['auth'])
 |--------------------------------------------------------------------------
 */
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

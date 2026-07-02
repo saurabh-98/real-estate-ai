@@ -54,7 +54,7 @@
 
             <input
                 type="text"
-                placeholder="Search properties..."
+                placeholder="Search employees..."
             >
 
         </div>
@@ -97,34 +97,7 @@
 
             <ul class="dropdown-menu dropdown-menu-end">
 
-                <li>
-
-                    <a
-                        class="dropdown-item"
-                        href="#">
-
-                        <i class="fa-solid fa-user"></i>
-
-                        Profile
-
-                    </a>
-
-                </li>
-
-                <li>
-
-                    <a
-                        class="dropdown-item"
-                        href="#">
-
-                        <i class="fa-solid fa-gear"></i>
-
-                        Settings
-
-                    </a>
-
-                </li>
-
+               
                 <li>
 
                     <hr class="dropdown-divider">

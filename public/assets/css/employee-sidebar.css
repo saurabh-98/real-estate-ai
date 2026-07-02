@@ -1,0 +1,701 @@
+/* ==========================================================
+   EMPLOYEE SIDEBAR
+========================================================== */
+
+:root{
+
+    --sidebar-width:290px;
+
+    --sidebar-bg:#ffffff;
+
+    --sidebar-primary:#2563eb;
+
+    --sidebar-secondary:#7c3aed;
+
+    --sidebar-success:#10b981;
+
+    --sidebar-text:#334155;
+
+    --sidebar-muted:#64748b;
+
+    --sidebar-border:#e5e7eb;
+
+    --sidebar-shadow:0 20px 45px rgba(15,23,42,.08);
+
+}
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.employee-sidebar{
+
+    position:fixed;
+
+    top:78px;
+
+    left:0;
+
+    width:var(--sidebar-width);
+
+    height:calc(100vh - 78px);
+
+    background:#fff;
+
+    border-right:1px solid var(--sidebar-border);
+
+    overflow-y:auto;
+
+    transition:.35s;
+
+    box-shadow:var(--sidebar-shadow);
+
+    z-index:1000;
+
+}
+
+/* Scrollbar */
+
+.employee-sidebar::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.employee-sidebar::-webkit-scrollbar-thumb{
+
+    background:#d1d5db;
+
+    border-radius:20px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.employee-sidebar-header{
+
+    padding:25px;
+
+    border-bottom:1px solid var(--sidebar-border);
+
+}
+
+.employee-sidebar-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.employee-sidebar-avatar{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        var(--sidebar-primary),
+        var(--sidebar-secondary)
+    );
+
+    color:#fff;
+
+    font-size:24px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:700;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+
+}
+
+.employee-sidebar-avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.employee-sidebar-user h5{
+
+    margin:0;
+
+    color:#0f172a;
+
+    font-weight:700;
+
+}
+
+.employee-sidebar-user span{
+
+    color:var(--sidebar-muted);
+
+    font-size:13px;
+
+}
+
+/* ==========================================================
+   MENU
+========================================================== */
+
+.employee-sidebar-menu{
+
+    padding:20px;
+
+}
+
+.menu-title{
+
+    display:block;
+
+    color:#94a3b8;
+
+    font-size:12px;
+
+    letter-spacing:1px;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+}
+
+.employee-sidebar-menu ul{
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+.employee-sidebar-menu li{
+
+    margin-bottom:10px;
+
+}
+
+.employee-sidebar-menu a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:15px 18px;
+
+    border-radius:16px;
+
+    color:var(--sidebar-text);
+
+    text-decoration:none;
+
+    transition:.30s;
+
+    font-weight:600;
+
+}
+
+.employee-sidebar-menu a i{
+
+    width:22px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    color:#64748b;
+
+    transition:.30s;
+
+}
+
+.employee-sidebar-menu a:hover{
+
+    background:#eff6ff;
+
+    color:var(--sidebar-primary);
+
+}
+
+.employee-sidebar-menu a:hover i{
+
+    color:var(--sidebar-primary);
+
+    transform:scale(1.1);
+
+}
+
+/* ==========================================================
+   ACTIVE MENU
+========================================================== */
+
+.employee-sidebar-menu a.active{
+
+    background:linear-gradient(
+        135deg,
+        var(--sidebar-primary),
+        var(--sidebar-secondary)
+    );
+
+    color:#fff;
+
+    box-shadow:0 12px 25px rgba(37,99,235,.20);
+
+}
+
+.employee-sidebar-menu a.active i{
+
+    color:#fff;
+
+}
+
+/* ==========================================================
+   MAIN CONTENT SHIFT
+========================================================== */
+
+.employee-main{
+
+    margin-left:290px;
+
+    transition:.35s;
+
+}
+
+/* ==========================================================
+   SIDEBAR FOOTER
+========================================================== */
+
+.employee-sidebar-footer{
+
+    padding:20px;
+
+    border-top:1px solid var(--sidebar-border);
+
+    margin-top:auto;
+
+}
+
+/* ==========================================================
+   PROFILE PROGRESS CARD
+========================================================== */
+
+.profile-progress-card{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    color:#fff;
+
+    border-radius:20px;
+
+    padding:22px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.profile-progress-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.12);
+
+    top:-40px;
+
+    right:-40px;
+
+}
+
+.progress-icon{
+
+    width:60px;
+
+    height:60px;
+
+    margin:auto;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.20);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:24px;
+
+    margin-bottom:18px;
+
+}
+
+.profile-progress-card h6{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.profile-progress-card strong{
+
+    font-size:28px;
+
+    display:block;
+
+    margin-top:15px;
+
+}
+
+/* ==========================================================
+   PROGRESS BAR
+========================================================== */
+
+.profile-progress-card .progress{
+
+    height:10px;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.25);
+
+    overflow:hidden;
+
+}
+
+.profile-progress-card .progress-bar{
+
+    background:#fff;
+
+    border-radius:50px;
+
+}
+
+/* ==========================================================
+   LOGOUT BUTTON
+========================================================== */
+
+.employee-logout-btn{
+
+    width:100%;
+
+    height:52px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#ef4444;
+
+    color:#fff;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    transition:.30s;
+
+    cursor:pointer;
+
+}
+
+.employee-logout-btn:hover{
+
+    background:#dc2626;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(239,68,68,.30);
+
+}
+
+/* ==========================================================
+   MENU HOVER ANIMATION
+========================================================== */
+
+.employee-sidebar-menu a{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.employee-sidebar-menu a::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:#2563eb;
+
+    transform:scaleY(0);
+
+    transition:.30s;
+
+}
+
+.employee-sidebar-menu a:hover::before{
+
+    transform:scaleY(1);
+
+}
+
+.employee-sidebar-menu a.active::before{
+
+    background:#fff;
+
+    transform:scaleY(1);
+
+}
+
+/* ==========================================================
+   OVERLAY
+========================================================== */
+
+.employee-sidebar-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(15,23,42,.55);
+
+    display:none;
+
+    z-index:998;
+
+    backdrop-filter:blur(2px);
+
+}
+
+.employee-sidebar-overlay.show{
+
+    display:block;
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:991px){
+
+    .employee-sidebar{
+
+        left:-100%;
+
+        top:0;
+
+        height:100vh;
+
+        z-index:1050;
+
+    }
+
+    .employee-sidebar.show{
+
+        left:0;
+
+    }
+
+    .employee-main{
+
+        margin-left:0;
+
+    }
+
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media(max-width:768px){
+
+    .employee-sidebar{
+
+        width:280px;
+
+    }
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:576px){
+
+    .employee-sidebar{
+
+        width:260px;
+
+    }
+
+    .employee-sidebar-avatar{
+
+        width:60px;
+
+        height:60px;
+
+        font-size:20px;
+
+    }
+
+    .employee-sidebar-user h5{
+
+        font-size:16px;
+
+    }
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+.employee-sidebar{
+
+    scrollbar-width:thin;
+
+    scrollbar-color:#cbd5e1 transparent;
+
+}
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+.employee-sidebar{
+
+    animation:sidebarFade .4s ease;
+
+}
+
+@keyframes sidebarFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+/* ==========================================================
+   PROFILE CARD HOVER
+========================================================== */
+
+.profile-progress-card{
+
+    transition:.35s;
+
+}
+
+.profile-progress-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 40px rgba(37,99,235,.25);
+
+}
+
+/* ==========================================================
+   SIDEBAR WIDTH COLLAPSE (Future Ready)
+========================================================== */
+
+.employee-sidebar.collapsed{
+
+    width:90px;
+
+}
+
+.employee-sidebar.collapsed .employee-sidebar-user,
+
+.employee-sidebar.collapsed .menu-title,
+
+.employee-sidebar.collapsed .employee-sidebar-menu span,
+
+.employee-sidebar.collapsed .profile-progress-card{
+
+    display:none;
+
+}
+
+.employee-sidebar.collapsed .employee-sidebar-menu a{
+
+    justify-content:center;
+
+}
+
+.employee-sidebar.collapsed + .employee-main{
+
+    margin-left:90px;
+
+}

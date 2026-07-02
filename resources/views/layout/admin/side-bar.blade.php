@@ -14,7 +14,7 @@
 
             <div class="admin-logo-icon">
 
-                <i class="fa-solid fa-building"></i>
+                <i class="fa-solid fa-users"></i>
 
             </div>
 
@@ -22,7 +22,7 @@
 
                 <h4>
 
-                    Real Estate AI
+                    Employee Manager
 
                 </h4>
 
@@ -86,85 +86,34 @@
 
             </li>
 
-            <!-- PROPERTIES -->
+            <!-- EMPLOYEES -->
 
             <li>
 
-                <a href="{{ route('admin.properties.index') }}"
-                   class="{{ request()->routeIs('admin.properties.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.employees.index') }}"
+                   class="{{ request()->routeIs('admin.employees.*') ? 'active' : '' }}">
 
                     <div class="menu-icon">
 
-                        <i class="fa-solid fa-building"></i>
+                        <i class="fa-solid fa-id-badge"></i>
 
                     </div>
 
                     <span>
 
-                        Properties
+                        Employees
 
                     </span>
 
                     <small class="danger">
 
-                        {{ \App\Models\Property::count() }}
+                        {{ \App\Models\Employee::count() }}
 
                     </small>
 
                 </a>
 
             </li>
-
-            <!-- ADD PROPERTY -->
-
-            <li>
-
-                <a href="{{ route('admin.properties.create') }}">
-
-                    <div class="menu-icon">
-
-                        <i class="fa-solid fa-plus"></i>
-
-                    </div>
-
-                    <span>
-
-                        Add Property
-
-                    </span>
-
-                </a>
-
-            </li>
-
-            <!-- ENQUIRIES -->
-
-            <li>
-
-                <a href="{{route('admin.enquiries')}}">
-
-                    <div class="menu-icon">
-
-                        <i class="fa-solid fa-envelope"></i>
-
-                    </div>
-
-                    <span>
-
-                        Enquiries
-
-                    </span>
-
-                    <small class="danger">
-
-                         {{ \App\Models\Enquiry::count() }}
-                    </small>
-
-                </a>
-
-            </li>
-
-        
 
         </ul>
 
@@ -186,13 +135,13 @@
 
             <h5>
 
-                Grow Faster
+                Stay Organized
 
             </h5>
 
             <p>
 
-                Manage your properties with modern AI tools.
+                Manage your workforce records in one place.
 
             </p>
 

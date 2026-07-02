@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Property;
-use App\Models\Enquiry;
+use App\Models\Employee;
 
 class DashboardController extends Controller
 {
@@ -16,76 +15,56 @@ class DashboardController extends Controller
 
     public function index()
     {
-        /*
+        
+    /*
         |--------------------------------------------------------------------------
-        | TOTAL PROPERTIES
-        |--------------------------------------------------------------------------
-        */
-
-        $totalProperties =
-            Property::count();
-
-        /*
-        |--------------------------------------------------------------------------
-        | ACTIVE PROPERTIES
+        | TOTAL EMPLOYEES
         |--------------------------------------------------------------------------
         */
 
-        $activeProperties =
-            Property::where('status', 1)
+        $totalEmployees =
+            Employee::count();
+
+        /*
+        |--------------------------------------------------------------------------
+        | COMPLETE PROFILES (has at least one education record)
+        |--------------------------------------------------------------------------
+        */
+
+        $completeProfiles =
+            Employee::has('educations')
                 ->count();
 
         /*
         |--------------------------------------------------------------------------
-        | FEATURED PROPERTIES
+        | INCOMPLETE PROFILES
         |--------------------------------------------------------------------------
         */
 
-        $featuredProperties =
-            Property::where('is_featured', 1)
+        $incompleteProfiles =
+            $totalEmployees - $completeProfiles;
+
+        /*
+        |--------------------------------------------------------------------------
+        | NEW THIS MONTH
+        |--------------------------------------------------------------------------
+        */
+
+        $newThisMonth =
+            Employee::whereMonth('created_at', now()->month)
+                ->whereYear('created_at', now()->year)
                 ->count();
 
         /*
         |--------------------------------------------------------------------------
-        | TOTAL ENQUIRIES
+        | RECENT EMPLOYEES
         |--------------------------------------------------------------------------
         */
 
-        $totalEnquiries =
-            Enquiry::count();
-
-        /*
-        |--------------------------------------------------------------------------
-        | RECENT PROPERTIES
-        |--------------------------------------------------------------------------
-        */
-
-        $recentProperties =
-            Property::latest()
-                ->take(5)
-                ->get();
-
-        /*
-        |--------------------------------------------------------------------------
-        | LATEST ENQUIRIES
-        |--------------------------------------------------------------------------
-        */
-
-        $latestEnquiries =
-            Enquiry::latest()
-                ->take(5)
-                ->get();
-
-        /*
-        |--------------------------------------------------------------------------
-        | RECENT ACTIVE PROPERTIES
-        |--------------------------------------------------------------------------
-        */
-
-        $recentActiveProperties =
-            Property::where('status', 1)
+        $recentEmployees =
+            Employee::withCount('educations')
                 ->latest()
-                ->take(6)
+                ->take(5)
                 ->get();
 
         /*
@@ -96,19 +75,15 @@ class DashboardController extends Controller
 
         return view('admin.dashboard', compact(
 
-            'totalProperties',
+            'totalEmployees',
 
-            'activeProperties',
+            'completeProfiles',
 
-            'featuredProperties',
+            'incompleteProfiles',
 
-            'totalEnquiries',
+            'newThisMonth',
 
-            'recentProperties',
-
-            'latestEnquiries',
-
-            'recentActiveProperties'
+            'recentEmployees'
 
         ));
     }

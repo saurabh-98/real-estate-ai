@@ -1,612 +1,233 @@
 @extends('layout.app')
 
-@section('title', 'Real Estate AI')
+@section('title','Employee Management System')
 
 @section('content')
 
-<div class="realestate-home">
+<section class="employee-home-hero">
 
-    <div class="container-fluid">
+    <div class="hero-shape shape-1"></div>
+    <div class="hero-shape shape-2"></div>
+    <div class="hero-shape shape-3"></div>
 
-        <!-- =====================================================
-        | HERO SECTION
-        ====================================================== -->
+    <div class="container">
 
-        <section class="realestate-home-hero">
+        <div class="row align-items-center min-vh-100">
 
-            <div class="realestate-home-overlay"></div>
+            <!-- ===========================================
+                LEFT CONTENT
+            ============================================ -->
 
-            <div class="realestate-home-content">
+            <div class="col-lg-6">
 
-                <!-- =====================================================
-                | LEFT CONTENT
-                ====================================================== -->
+                <div class="hero-content">
 
-                <div class="realestate-home-left">
+                    <span class="hero-badge">
 
-                    <!-- BADGE -->
+                        <i class="fa-solid fa-users"></i>
 
-                    <div class="realestate-badge">
+                        Employee Management System
 
-                        <i class="fa-solid fa-building"></i>
+                    </span>
 
-                        Smart AI Property Platform
+                    <h1>
 
-                    </div>
+                        Smart Employee
 
-                    <!-- TITLE -->
+                        <span>
 
-                    <h1 class="realestate-home-title">
+                            Management
 
-                        Discover Premium
-                        Properties Across India
+                        </span>
+
+                        Portal
 
                     </h1>
 
-                    <!-- DESCRIPTION -->
-
-                    <p class="realestate-home-text">
-
-                        Explore luxury villas, apartments,
-                        houses and investment properties
-                        with AI-powered smart property solutions.
-
-                    </p>
-
-                    <!-- =====================================================
-                    | SEARCH BOX
-                    ====================================================== -->
-
-                    <form
-                        action="{{ route('properties') }}"
-                        method="GET"
-                    >
-
-                        <div class="realestate-home-search">
-
-                            <i class="fa fa-search"></i>
-
-                            <input
-                                type="text"
-                                name="search"
-                                id="propertySearchInput"
-                                autocomplete="off"
-                                placeholder="Search property by city, type..."
-                                value="{{ request('search') }}"
-                            >
-
-                            <button
-                                type="submit"
-                                id="propertySearchBtn">
-
-                                <i class="fa fa-search"></i>
-
-                                Search
-
-                            </button>
-
-                        </div>
-
-                    </form>
-
-                    <!-- =====================================================
-                    | QUICK SEARCH
-                    ====================================================== -->
-
-                    <div class="realestate-quick-search">
-
-                        <a href="{{ route('properties', ['search' => 'Delhi']) }}">
-
-                            Delhi
-
-                        </a>
-
-                        <a href="{{ route('properties', ['search' => 'Mumbai']) }}">
-
-                            Mumbai
-
-                        </a>
-
-                        <a href="{{ route('properties', ['search' => 'Bangalore']) }}">
-
-                            Bangalore
-
-                        </a>
-
-                        <a href="{{ route('properties', ['search' => 'Chennai']) }}">
-
-                            Chennai
-
-                        </a>
-
-                        <a href="{{ route('properties', ['search' => 'Hyderabad']) }}">
-
-                            Hyderabad
-
-                        </a>
-
-                    </div>
-
-                    <!-- =====================================================
-                    | ACTION BUTTONS
-                    ====================================================== -->
-
-                    <div class="realestate-action-buttons">
-
-                        <a
-                            href="{{ route('properties') }}"
-                            class="realestate-btn-primary"
-                        >
-
-                            <i class="fa fa-building"></i>
-
-                            Explore Properties
-
-                        </a>
-
-                        <a
-                            href="{{ route('properties') }}"
-                            class="realestate-btn-secondary"
-                        >
-
-                            <i class="fa fa-star"></i>
-
-                            Featured Listings
-
-                        </a>
-
-                    </div>
-
-                    <!-- =====================================================
-                    | LIVE STATS
-                    ====================================================== -->
-
-                    <div class="hero-live-stats">
-
-                        <div class="hero-live-stat-box">
-
-                            <h3>
-
-                                {{ $totalProperties ?? 0 }}+
-
-                            </h3>
-
-                            <p>
-
-                                Properties
-
-                            </p>
-
-                        </div>
-
-                        <div class="hero-live-stat-box">
-
-                            <h3>
-
-                                {{ $featuredProperties ?? 0 }}+
-
-                            </h3>
-
-                            <p>
-
-                                Featured
-
-                            </p>
-
-                        </div>
-
-                        <div class="hero-live-stat-box">
-
-                            <h3>
-
-                                {{ $citiesCount ?? 0 }}+
-
-                            </h3>
-
-                            <p>
-
-                                Cities
-
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- =====================================================
-                | RIGHT CONTENT
-                ====================================================== -->
-
-                <div class="realestate-home-right">
-
-                    @if($featuredProperty)
-
-                        <div class="realestate-live-card">
-
-                            <!-- TOP -->
-
-                            <div class="realestate-live-top">
-
-                                <div>
-
-                                    <small>
-
-                                        Featured Property
-
-                                    </small>
-
-                                    <h4>
-
-                                        {{ $featuredProperty->title }}
-
-                                    </h4>
-
-                                </div>
-
-                                @if($featuredProperty->featured_image)
-
-                                    <img
-                                        src="{{ asset('storage/properties/'.$featuredProperty->featured_image) }}"
-                                        alt="{{ $featuredProperty->title }}"
-                                    >
-
-                                @else
-
-                                    <img
-                                        src="https://placehold.co/120x100"
-                                        alt="Property Image"
-                                    >
-
-                                @endif
-
-                            </div>
-
-                            <!-- PRICE -->
-
-                            <h1 class="realestate-live-price">
-
-                                ₹{{ number_format($featuredProperty->price) }}
-
-                            </h1>
-
-                            <!-- LOCATION -->
-
-                            <div class="realestate-live-location">
-
-                                <i class="fa-solid fa-location-dot"></i>
-
-                                {{ $featuredProperty->city }},
-                                {{ $featuredProperty->state }}
-
-                            </div>
-
-                            <!-- DESCRIPTION -->
-
-                            <p class="realestate-live-description">
-
-                                {{ \Illuminate\Support\Str::limit($featuredProperty->description, 120) }}
-
-                            </p>
-
-                            <!-- =====================================================
-                            | PROPERTY STATS
-                            ====================================================== -->
-
-                            <div class="realestate-live-stats">
-
-                                <div class="realestate-live-stat">
-
-                                    <i class="fa fa-bed"></i>
-
-                                    <div>
-
-                                        <span>
-
-                                            Bedrooms
-
-                                        </span>
-
-                                        <strong>
-
-                                            {{ $featuredProperty->bedrooms ?? 0 }}
-
-                                        </strong>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="realestate-live-stat">
-
-                                    <i class="fa fa-bath"></i>
-
-                                    <div>
-
-                                        <span>
-
-                                            Bathrooms
-
-                                        </span>
-
-                                        <strong>
-
-                                            {{ $featuredProperty->bathrooms ?? 0 }}
-
-                                        </strong>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="realestate-live-stat">
-
-                                    <i class="fa fa-ruler-combined"></i>
-
-                                    <div>
-
-                                        <span>
-
-                                            Area
-
-                                        </span>
-
-                                        <strong>
-
-                                            {{ $featuredProperty->area ?? 0 }} sqft
-
-                                        </strong>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="realestate-live-stat">
-
-                                    <i class="fa fa-car"></i>
-
-                                    <div>
-
-                                        <span>
-
-                                            Parking
-
-                                        </span>
-
-                                        <strong>
-
-                                            {{ $featuredProperty->garage ?? 0 }}
-
-                                        </strong>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <!-- BUTTONS -->
-
-                            <div class="realestate-property-actions">
-
-                                <!-- VIEW DETAILS -->
-
-                                <a
-                                    href="{{ route('properties.show', $featuredProperty->slug) }}"
-                                    class="realestate-property-btn"
-                                >
-
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-                                    <span>
-
-                                        View Details
-
-                                    </span>
-
-                                </a>
-
-                                <!-- ENQUIRY BUTTON -->
-
-                                <button
-                                    type="button"
-                                    class="realestate-enquiry-btn"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#enquiryModal"
-                                    data-property="{{ $featuredProperty->title }}"
-                                >
-
-                                    <i class="fa-solid fa-paper-plane"></i>
-
-                                    <span>
-
-                                        Send Enquiry
-
-                                    </span>
-
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    @endif
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- =====================================================
-        | FEATURED PROPERTY SECTION
-        ====================================================== -->
-
-        <section class="realestate-home-section">
-
-            <div class="realestate-section-title">
-
-                <div>
-
-                    <h2>
-
-                        Featured Properties
-
-                    </h2>
-
                     <p>
 
-                        Explore our premium listings
+                        Digitally manage employee profiles,
+                        education records, document uploads,
+                        and administrative operations from one
+                        secure platform.
 
                     </p>
 
-                </div>
+                    <div class="hero-buttons">
 
-                <a
-                    href="{{ route('properties') }}"
-                    class="view-all-btn"
-                >
+                        <a
+                            href="{{ route('employee.login') }}"
+                            class="btn btn-primary btn-lg">
 
-                    View All
+                            <i class="fa-solid fa-user"></i>
 
-                </a>
+                            Employee Login
 
-            </div>
+                        </a>
 
-            <!-- PROPERTY GRID -->
+                        <a
+                            href="{{ route('login') }}"
+                            class="btn btn-outline-primary btn-lg">
 
-            <div class="realestate-property-grid">
+                            <i class="fa-solid fa-user-shield"></i>
 
-                @forelse($properties as $property)
+                            Admin Login
 
-                    <!-- PROPERTY CARD -->
+                        </a>
 
-                    <div class="realestate-property-card">
+                    </div>
 
-                        <!-- IMAGE -->
+                    <div class="hero-highlights">
 
-                        <div class="realestate-property-image">
+                        <div>
 
-                            @if($property->featured_image)
+                            <i class="fa-solid fa-circle-check"></i>
 
-                                <img
-                                    src="{{ asset('storage/properties/'.$property->featured_image) }}"
-                                    alt="{{ $property->title }}"
-                                >
-
-                            @else
-
-                                <img
-                                    src="https://placehold.co/600x400"
-                                    alt="Property"
-                                >
-
-                            @endif
-
-                            <span class="property-badge">
-
-                                {{ optional($property->propertyType)->name }}
-
-                            </span>
+                            Secure Authentication
 
                         </div>
 
-                        <!-- CONTENT -->
+                        <div>
 
-                        <div class="realestate-property-content">
+                            <i class="fa-solid fa-circle-check"></i>
 
-                            <h3>
+                            Role Based Access
 
-                                {{ $property->title }}
+                        </div>
 
-                            </h3>
+                        <div>
 
-                            <p>
+                            <i class="fa-solid fa-circle-check"></i>
 
-                                <i class="fa-solid fa-location-dot"></i>
+                            Responsive Dashboard
 
-                                {{ $property->city }},
-                                {{ $property->state }}
+                        </div>
 
-                            </p>
+                    </div>
 
-                            <h2>
+                </div>
 
-                                ₹{{ number_format($property->price) }}
+            </div>
 
-                            </h2>
+            <!-- ===========================================
+                RIGHT CONTENT
+            ============================================ -->
 
-                            <!-- FEATURES -->
+            <div class="col-lg-6">
 
-                            <div class="property-feature-list">
+                <div class="hero-card">
+
+                    <div class="hero-card-header">
+
+                        <h4>
+
+                            Organization Overview
+
+                        </h4>
+
+                    </div>
+
+                    <div class="row g-4">
+
+                        <div class="col-6">
+
+                            <div class="hero-stat">
+
+                                <div class="icon bg-primary">
+
+                                    <i class="fa-solid fa-users"></i>
+
+                                </div>
+
+                                <h3>
+
+                                    {{ $totalEmployees }}
+
+                                </h3>
 
                                 <span>
 
-                                    <i class="fa fa-bed"></i>
-
-                                    {{ $property->bedrooms ?? 0 }}
-
-                                </span>
-
-                                <span>
-
-                                    <i class="fa fa-bath"></i>
-
-                                    {{ $property->bathrooms ?? 0 }}
-
-                                </span>
-
-                                <span>
-
-                                    <i class="fa fa-expand"></i>
-
-                                    {{ $property->area ?? 0 }} sqft
+                                    Employees
 
                                 </span>
 
                             </div>
 
-                            <!-- ACTION BUTTONS -->
+                        </div>
 
-                            <div class="realestate-property-actions">
+                        <div class="col-6">
 
-                                <!-- VIEW DETAILS -->
+                            <div class="hero-stat">
 
-                                <a
-                                    href="{{ route('properties.show', $property->slug) }}"
-                                    class="realestate-property-btn"
-                                >
+                                <div class="icon bg-success">
 
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    <i class="fa-solid fa-user-check"></i>
 
-                                    <span>
+                                </div>
 
-                                        View Details
+                                <h3>
 
-                                    </span>
+                                    {{ $registeredUsers }}
 
-                                </a>
+                                </h3>
 
-                                <!-- ENQUIRY BUTTON -->
+                                <span>
 
-                                <button
-                                    type="button"
-                                    class="realestate-enquiry-btn"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#enquiryModal"
-                                    data-property="{{ $property->title }}"
-                                >
+                                    Registered
 
-                                    <i class="fa-solid fa-paper-plane"></i>
+                                </span>
 
-                                    <span>
+                            </div>
 
-                                        Send Enquiry
+                        </div>
 
-                                    </span>
+                        <div class="col-6">
 
-                                </button>
+                            <div class="hero-stat">
+
+                                <div class="icon bg-info">
+
+                                    <i class="fa-solid fa-address-card"></i>
+
+                                </div>
+
+                                <h3>
+
+                                    {{ $completedProfiles }}
+
+                                </h3>
+
+                                <span>
+
+                                    Completed Profiles
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="hero-stat">
+
+                                <div class="icon bg-warning">
+
+                                    <i class="fa-solid fa-user-clock"></i>
+
+                                </div>
+
+                                <h3>
+
+                                    {{ $pendingProfiles }}
+
+                                </h3>
+
+                                <span>
+
+                                    Pending
+
+                                </span>
 
                             </div>
 
@@ -614,72 +235,522 @@
 
                     </div>
 
-                @empty
+                </div>
 
-                    <!-- EMPTY -->
+            </div>
 
-                    <div class="empty-property-box">
+        </div>
 
-                        <i class="fa-solid fa-building-circle-xmark"></i>
+    </div>
 
-                        <h3>
+</section>
 
-                            No Properties Found
+<!-- ===========================================
+    FEATURES SECTION
+=========================================== -->
 
-                        </h3>
+<section class="employee-features py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2>
+
+                Everything You Need To Manage Employees
+
+            </h2>
+
+            <p>
+
+                Modern tools for HR and employee management.
+
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            @foreach($features as $feature)
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+
+                            <i class="fa-solid {{ $feature['icon'] }}"></i>
+
+                        </div>
+
+                        <h4>
+
+                            {{ $feature['title'] }}
+
+                        </h4>
 
                         <p>
 
-                            No featured properties available right now.
+                            {{ $feature['description'] }}
 
                         </p>
 
                     </div>
 
-                @endforelse
+                </div>
 
-            </div>
+            @endforeach
 
-        </section>
+        </div>
 
     </div>
 
-</div>
+</section>
 
-<!-- =========================================
-ENQUIRY MODAL
-========================================== -->
+<!-- ===========================================================
+    HOW IT WORKS
+=========================================================== -->
 
-@include('frontend.partials.enquiry-modal')
+<section class="employee-workflow py-5">
 
-<!-- =====================================================
-| MODAL SCRIPT
-====================================================== -->
+    <div class="container">
 
-<script>
+        <div class="section-heading text-center mb-5">
 
-    document.addEventListener("DOMContentLoaded", function () {
+            <span>
 
-        const enquiryButtons =
-            document.querySelectorAll(".realestate-enquiry-btn");
+                Workflow
 
-        enquiryButtons.forEach(button => {
+            </span>
 
-            button.addEventListener("click", function () {
+            <h2>
 
-                const property =
-                    this.getAttribute("data-property");
+                Simple Employee Management Process
 
-                document.getElementById(
-                    "selectedProperty"
-                ).value = property;
+            </h2>
 
-            });
+            <p>
 
-        });
+                Complete your profile in just a few easy steps.
 
-    });
+            </p>
 
-</script>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+
+                        01
+
+                    </div>
+
+                    <div class="workflow-icon">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Login
+
+                    </h4>
+
+                    <p>
+
+                        Login securely using your employee credentials.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+
+                        02
+
+                    </div>
+
+                    <div class="workflow-icon">
+
+                        <i class="fa-solid fa-id-card"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Complete Profile
+
+                    </h4>
+
+                    <p>
+
+                        Fill your personal and contact information.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+
+                        03
+
+                    </div>
+
+                    <div class="workflow-icon">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Add Education
+
+                    </h4>
+
+                    <p>
+
+                        Upload qualifications and supporting documents.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="workflow-card">
+
+                    <div class="workflow-number">
+
+                        04
+
+                    </div>
+
+                    <div class="workflow-icon">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                    </div>
+
+                    <h4>
+
+                        Verification
+
+                    </h4>
+
+                    <p>
+
+                        HR reviews and approves your employee profile.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================================================
+    LATEST EMPLOYEES
+=========================================================== -->
+
+<section class="latest-employees py-5">
+
+    <div class="container">
+
+        <div class="section-heading mb-5">
+
+            <div>
+
+                <span>
+
+                    Team Members
+
+                </span>
+
+                <h2>
+
+                    Recently Added Employees
+
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="row g-4">
+
+            @forelse($latestEmployees as $employee)
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="employee-card">
+
+                        <div class="employee-card-top">
+
+                            @if($employee->profile_photo)
+
+                                <img
+                                    src="{{ asset('storage/'.$employee->profile_photo) }}"
+                                    alt="{{ $employee->full_name }}">
+
+                            @else
+
+                                <div class="employee-avatar">
+
+                                    {{ strtoupper(substr($employee->full_name,0,1)) }}
+
+                                </div>
+
+                            @endif
+
+                        </div>
+
+                        <div class="employee-card-body">
+
+                            <h4>
+
+                                {{ $employee->full_name }}
+
+                            </h4>
+
+                            <p>
+
+                                {{ $employee->email }}
+
+                            </p>
+
+                            <div class="employee-meta">
+
+                                <span>
+
+                                    <i class="fa-solid fa-location-dot"></i>
+
+                                    {{ $employee->city }}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            @empty
+
+                <div class="col-12">
+
+                    <div class="alert alert-info text-center">
+
+                        No employees available.
+
+                    </div>
+
+                </div>
+
+            @endforelse
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================================================
+    WHY CHOOSE US
+=========================================================== -->
+
+<section class="employee-advantages py-5">
+
+    <div class="container">
+
+        <div class="section-heading text-center mb-5">
+
+            <span>
+
+                Benefits
+
+            </span>
+
+            <h2>
+
+                Why Choose Our Employee Portal?
+
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="advantage-box">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <h5>
+
+                        Secure
+
+                    </h5>
+
+                    <p>
+
+                        Enterprise-grade authentication and authorization.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="advantage-box">
+
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                    <h5>
+
+                        Responsive
+
+                    </h5>
+
+                    <p>
+
+                        Works perfectly on mobile, tablet and desktop.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="advantage-box">
+
+                    <i class="fa-solid fa-gauge-high"></i>
+
+                    <h5>
+
+                        Fast
+
+                    </h5>
+
+                    <p>
+
+                        Optimized Laravel application with high performance.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="advantage-box">
+
+                    <i class="fa-solid fa-users-gear"></i>
+
+                    <h5>
+
+                        HR Friendly
+
+                    </h5>
+
+                    <p>
+
+                        Simplifies employee and document management.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===========================================================
+    CTA
+=========================================================== -->
+
+<section class="employee-cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+
+                Ready to Join Our Employee Portal?
+
+            </h2>
+
+            <p>
+
+                Access your employee dashboard and manage your profile securely.
+
+            </p>
+
+            <div class="mt-4">
+
+                <a
+                    href="{{ route('employee.login') }}"
+                    class="btn btn-light btn-lg">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    Employee Login
+
+                </a>
+
+                <a
+                    href="{{ route('login') }}"
+                    class="btn btn-outline-light btn-lg ms-3">
+
+                    <i class="fa-solid fa-user-shield"></i>
+
+                    Admin Login
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 @endsection

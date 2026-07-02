@@ -4,9 +4,9 @@
 
         <div class="realestate-footer-wrapper">
 
-            <!-- =====================================================
-            | LEFT SECTION
-            ====================================================== -->
+            <!-- ==========================================
+            | BRAND
+            =========================================== -->
 
             <div class="realestate-footer-left">
 
@@ -14,22 +14,16 @@
 
                     <div class="footer-logo">
 
-                        <i class="fa-solid fa-building"></i>
+                        <i class="fa-solid fa-users-gear"></i>
 
                     </div>
 
                     <div>
 
-                        <h5>
-
-                            Real Estate AI
-
-                        </h5>
+                        <h5>Employee Management System</h5>
 
                         <p>
-
-                            Smart Property Listings & AI Powered Solutions
-
+                            Smart HR Management • Employee Records • Workforce Analytics
                         </p>
 
                     </div>
@@ -38,128 +32,80 @@
 
             </div>
 
-            <!-- =====================================================
-            | CENTER SECTION
-            ====================================================== -->
+            <!-- ==========================================
+            | FEATURES
+            =========================================== -->
 
             <div class="realestate-footer-center">
 
                 <div class="footer-property-status">
 
                     <div class="status-item">
-
-                        <i class="fa-solid fa-house"></i>
-
-                        <span>
-
-                            Premium Properties
-
-                        </span>
-
+                        <i class="fa-solid fa-users"></i>
+                        <span>Employee Records</span>
                     </div>
 
                     <div class="status-item">
-
-                        <i class="fa-solid fa-city"></i>
-
-                        <span>
-
-                            Multiple Cities
-
-                        </span>
-
+                        <i class="fa-solid fa-user-check"></i>
+                        <span>Verified Profiles</span>
                     </div>
 
                     <div class="status-item">
-
-                        <i class="fa-solid fa-building-circle-check"></i>
-
-                        <span>
-
-                            Verified Listings
-
-                        </span>
-
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Education Details</span>
                     </div>
 
                     <div class="status-item">
-
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
-
-                        <span>
-
-                            AI Integration
-
-                        </span>
-
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>HR Analytics</span>
                     </div>
 
                 </div>
 
             </div>
 
-            <!-- =====================================================
-            | RIGHT SECTION
-            ====================================================== -->
+            <!-- ==========================================
+            | LINKS
+            =========================================== -->
 
             <div class="realestate-footer-right">
-
-                <!-- FOOTER LINKS -->
 
                 <div class="footer-links">
 
                     <a href="{{ url('/') }}">
-
                         Home
-
                     </a>
 
-                    <a href="#">
-
-                        Properties
-
+                    <a href="{{ route('admin.dashboard') }}">
+                        Dashboard
                     </a>
 
-                    <a href="#">
-
-                        Featured
-
+                    <a href="{{ route('admin.employees.index') }}">
+                        Employees
                     </a>
 
                     <a href="{{ route('login') }}">
-
-                        Admin
-
+                        Admin Login
                     </a>
 
                 </div>
 
-                <!-- SOCIAL LINKS -->
-
                 <div class="footer-social">
 
-                    <a href="#">
-
+                    <a href="#" aria-label="Facebook">
                         <i class="fab fa-facebook-f"></i>
-
                     </a>
 
-                    <a href="#">
-
+                    <a href="#" aria-label="Twitter">
                         <i class="fab fa-twitter"></i>
-
                     </a>
 
-                    <a href="#">
-
-                        <i class="fab fa-instagram"></i>
-
-                    </a>
-
-                    <a href="#">
-
+                    <a href="#" aria-label="Linkedin">
                         <i class="fab fa-linkedin-in"></i>
+                    </a>
 
+                    <a href="#" aria-label="Github">
+                        <i class="fab fa-github"></i>
                     </a>
 
                 </div>
@@ -168,9 +114,9 @@
 
         </div>
 
-        <!-- =====================================================
+        <!-- ==========================================
         | FOOTER BOTTOM
-        ====================================================== -->
+        =========================================== -->
 
         <div class="realestate-footer-bottom">
 
@@ -178,19 +124,19 @@
 
                 © {{ date('Y') }}
 
-                <strong>
+                <strong>Employee Management System</strong>
 
-                    Real Estate AI
-
-                </strong>
-
-                |Real Estate Platform
+                | All Rights Reserved
 
             </div>
 
             <div>
 
-                Powered By AI & Modern Web Technologies
+                Workforce Management Solution
+
+                <span>|</span>
+
+                Version 1.0.0
 
             </div>
 

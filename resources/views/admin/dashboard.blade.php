@@ -22,8 +22,8 @@
 
             <p>
 
-                Monitor your properties, enquiries,
-                listings and real-estate analytics.
+                Monitor employee records, profiles
+                and workforce statistics.
 
             </p>
 
@@ -31,21 +31,12 @@
 
         <div class="dashboard-header-btns">
 
-            <a href="{{ route('admin.properties.create') }}"
+            <a href="{{ route('admin.employees.index') }}"
                class="dashboard-btn primary-btn">
 
-                <i class="fa-solid fa-plus"></i>
+                <i class="fa-solid fa-users"></i>
 
-                Add Property
-
-            </a>
-
-            <a href="#"
-               class="dashboard-btn secondary-btn">
-
-                <i class="fa-solid fa-chart-line"></i>
-
-                Analytics
+                View All Employees
 
             </a>
 
@@ -59,7 +50,7 @@
 
     <div class="row g-4">
 
-        <!-- TOTAL PROPERTIES -->
+        <!-- TOTAL EMPLOYEES -->
 
         <div class="col-xl-3 col-lg-6 col-md-6">
 
@@ -67,7 +58,7 @@
 
                 <div class="dashboard-stat-icon blue">
 
-                    <i class="fa-solid fa-building"></i>
+                    <i class="fa-solid fa-users"></i>
 
                 </div>
 
@@ -75,19 +66,19 @@
 
                     <h6>
 
-                        Total Properties
+                        Total Employees
 
                     </h6>
 
                     <h2>
 
-                        {{ $totalProperties }}
+                        {{ $totalEmployees }}
 
                     </h2>
 
                     <p>
 
-                        Total uploaded properties
+                        Registered employee profiles
 
                     </p>
 
@@ -97,89 +88,13 @@
 
         </div>
 
-        <!-- TOTAL ENQUIRIES -->
-
-        <div class="col-xl-3 col-lg-6 col-md-6">
-
-            <div class="dashboard-stat-card">
-
-                <div class="dashboard-stat-icon purple">
-
-                    <i class="fa-solid fa-envelope"></i>
-
-                </div>
-
-                <div class="dashboard-stat-content">
-
-                    <h6>
-
-                        Enquiries
-
-                    </h6>
-
-                    <h2>
-
-                        {{ $totalEnquiries }}
-
-                    </h2>
-
-                    <p>
-
-                        Customer property enquiries
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- FEATURED -->
+        <!-- COMPLETE PROFILES -->
 
         <div class="col-xl-3 col-lg-6 col-md-6">
 
             <div class="dashboard-stat-card">
 
                 <div class="dashboard-stat-icon green">
-
-                    <i class="fa-solid fa-star"></i>
-
-                </div>
-
-                <div class="dashboard-stat-content">
-
-                    <h6>
-
-                        Featured Listings
-
-                    </h6>
-
-                    <h2>
-
-                        {{ $featuredProperties }}
-
-                    </h2>
-
-                    <p>
-
-                        Premium active listings
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- ACTIVE -->
-
-        <div class="col-xl-3 col-lg-6 col-md-6">
-
-            <div class="dashboard-stat-card">
-
-                <div class="dashboard-stat-icon orange">
 
                     <i class="fa-solid fa-circle-check"></i>
 
@@ -189,19 +104,95 @@
 
                     <h6>
 
-                        Active Properties
+                        Complete Profiles
 
                     </h6>
 
                     <h2>
 
-                        {{ $activeProperties }}
+                        {{ $completeProfiles }}
 
                     </h2>
 
                     <p>
 
-                        Currently live properties
+                        Profiles with education added
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PENDING PROFILES -->
+
+        <div class="col-xl-3 col-lg-6 col-md-6">
+
+            <div class="dashboard-stat-card">
+
+                <div class="dashboard-stat-icon orange">
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                </div>
+
+                <div class="dashboard-stat-content">
+
+                    <h6>
+
+                        Incomplete Profiles
+
+                    </h6>
+
+                    <h2>
+
+                        {{ $incompleteProfiles }}
+
+                    </h2>
+
+                    <p>
+
+                        Missing education / documents
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- NEW THIS MONTH -->
+
+        <div class="col-xl-3 col-lg-6 col-md-6">
+
+            <div class="dashboard-stat-card">
+
+                <div class="dashboard-stat-icon purple">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                </div>
+
+                <div class="dashboard-stat-content">
+
+                    <h6>
+
+                        New This Month
+
+                    </h6>
+
+                    <h2>
+
+                        {{ $newThisMonth }}
+
+                    </h2>
+
+                    <p>
+
+                        Employees added recently
 
                     </p>
 
@@ -219,7 +210,7 @@
 
     <div class="row g-4 mt-1">
 
-        <!-- RECENT PROPERTIES -->
+        <!-- RECENT EMPLOYEES -->
 
         <div class="col-xl-8">
 
@@ -229,11 +220,11 @@
 
                     <h5>
 
-                        Recent Properties
+                        Recent Employees
 
                     </h5>
 
-                    <a href="{{ route('admin.properties.index') }}">
+                    <a href="{{ route('admin.employees.index') }}">
 
                         View All
 
@@ -249,13 +240,13 @@
 
                             <tr>
 
-                                <th>Image</th>
+                                <th>Photo</th>
 
-                                <th>Property</th>
+                                <th>Name</th>
 
-                                <th>Location</th>
+                                <th>Email</th>
 
-                                <th>Price</th>
+                                <th>City</th>
 
                                 <th>Status</th>
 
@@ -265,33 +256,33 @@
 
                         <tbody>
 
-                            @forelse($recentProperties as $property)
+                            @forelse($recentEmployees as $employee)
 
                                 <tr>
 
                                     <td>
 
-                                        @if($property->featured_image)
+                                        @if($employee->profile_photo)
 
                                             <img
-                                                src="{{ asset('storage/properties/'.$property->featured_image) }}"
-                                                width="70"
-                                                height="55"
+                                                src="{{ asset('storage/'.$employee->profile_photo) }}"
+                                                width="45"
+                                                height="45"
                                                 style="
                                                     object-fit:cover;
-                                                    border-radius:10px;
+                                                    border-radius:50%;
                                                 "
                                             >
 
                                         @else
 
                                             <img
-                                                src="https://placehold.co/70x55"
-                                                width="70"
-                                                height="55"
+                                                src="https://placehold.co/45x45"
+                                                width="45"
+                                                height="45"
                                                 style="
                                                     object-fit:cover;
-                                                    border-radius:10px;
+                                                    border-radius:50%;
                                                 "
                                             >
 
@@ -303,7 +294,7 @@
 
                                         <strong>
 
-                                            {{ $property->title }}
+                                            {{ $employee->full_name }}
 
                                         </strong>
 
@@ -311,23 +302,23 @@
 
                                     <td>
 
-                                        {{ $property->city }}
+                                        {{ $employee->email }}
 
                                     </td>
 
                                     <td>
 
-                                        ₹{{ number_format($property->price) }}
+                                        {{ $employee->city }}
 
                                     </td>
 
                                     <td>
 
-                                        @if($property->status == 1)
+                                        @if($employee->educations_count > 0)
 
                                             <span class="status active">
 
-                                                Active
+                                                Complete
 
                                             </span>
 
@@ -335,7 +326,7 @@
 
                                             <span class="status pending">
 
-                                                Inactive
+                                                Incomplete
 
                                             </span>
 
@@ -351,7 +342,7 @@
 
                                     <td colspan="5" class="text-center">
 
-                                        No properties found
+                                        No employees found
 
                                     </td>
 
@@ -387,30 +378,12 @@
 
                 <div class="quick-actions">
 
-                    <a href="{{ route('admin.properties.create') }}"
+                    <a href="{{ route('admin.employees.index') }}"
                        class="quick-action-btn">
 
-                        <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-users"></i>
 
-                        Add New Property
-
-                    </a>
-
-                    <a href="{{ route('admin.properties.index') }}"
-                       class="quick-action-btn">
-
-                        <i class="fa-solid fa-building"></i>
-
-                        Manage Properties
-
-                    </a>
-
-                    <a href="{{route('admin.enquiries')}}"
-                       class="quick-action-btn">
-
-                        <i class="fa-solid fa-envelope"></i>
-
-                        View Enquiries
+                        Manage Employees
 
                     </a>
 
@@ -427,7 +400,7 @@
 
             </div>
 
-            <!-- AI ANALYTICS -->
+            <!-- SYSTEM STATUS -->
 
             <div class="dashboard-card mt-4">
 
@@ -435,7 +408,7 @@
 
                     <h5>
 
-                        AI Analytics
+                        System Status
 
                     </h5>
 
@@ -449,13 +422,13 @@
 
                             <h6>
 
-                                AI Descriptions
+                                Role-Based Access
 
                             </h6>
 
                             <p>
 
-                                Generated content support
+                                Admin / Employee separation
 
                             </p>
 
@@ -475,13 +448,13 @@
 
                             <h6>
 
-                                AJAX Workflow
+                                File Uploads
 
                             </h6>
 
                             <p>
 
-                                Smart async operations
+                                Photos & document storage
 
                             </p>
 
@@ -501,13 +474,13 @@
 
                             <h6>
 
-                                Property Listings
+                                Education Records
 
                             </h6>
 
                             <p>
 
-                                Public frontend ready
+                                One-to-many relationship
 
                             </p>
 

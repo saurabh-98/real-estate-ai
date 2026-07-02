@@ -44,7 +44,7 @@
 
                         <p>
 
-                            Login to Real Estate AI Admin Dashboard
+                            Login to Admin Dashboard
 
                         </p>
 
